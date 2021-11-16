@@ -32,16 +32,19 @@ This is a Pong Clone for the Capstone project in the [Udacity C++ Nanodegree Pro
 The game runs until window gets closed (x).
 
 ## Project Rubric
+
 __Compiling and Testing (All Rubric Points REQUIRED)__
 |DONE | CRITERIA | MEETS SPECIFICATIONS| WHERE |
 |-- | -- | --| -- |
 | :heavy_check_mark: | The submission must compile and run. | The project code must compile and run without errors. We strongly recommend using cmake and make, as provided in the starter repos. If you choose another build system, the code must compile on any reviewer platform. |
+
 __Loops, Functions, I/O__
 |DONE | CRITERIA | MEETS SPECIFICATIONS| WHERE |
 |-- | -- | --| -- |
 | :heavy_check_mark: | The project demonstrates an understanding of C++ functions and control structures.| A variety of control structures are used in the project. The project code is clearly organized into functions.| Everywhere. |
 |  | The project reads data from a file and process the data, or the program writes data to a file. | The project reads data from an external file or writes data to a file as part of the necessary operation of the program.|
 | :heavy_check_mark: | The project accepts user input and processes the input.|The project accepts input from a user as part of the necessary operation of the program.|  The paddles can be moved via keyboard. |
+
 __Object Oriented Programming__
 |DONE | CRITERIA | MEETS SPECIFICATIONS| WHERE |
 |-- | -- | --| -- |
@@ -52,8 +55,9 @@ __Object Oriented Programming__
 | :heavy_check_mark: | Classes encapsulate behavior. | Appropriate data and functions are grouped into classes. Member data that is subject to an invariant is hidden from the user. State is accessed via member functions.| All *.cpp and *.h files. |
 | :heavy_check_mark: | Classes follow an appropriate inheritance hierarchy. | Inheritance hierarchies are logical. Composition is used instead of inheritance when appropriate. Abstract classes are composed of pure virtual functions. Override functions are specified.|  |
 |  | Overloaded functions allow the same function to operate on different parameters. |  |
-|  | Derived class functions override virtual base class functions. |One member function in an inherited class overrides a virtual base class member function. | All children of class GameObject override at least on of its functions. |
+|  | Derived class functions override virtual base class functions. |One member function in an inherited class overrides a virtual base class member function. | 
 |  | Templates generalize functions in the project. | One function is declared with a template that allows it to accept a generic parameter.|  |
+
 __Memory Management__
 |DONE | CRITERIA | MEETS SPECIFICATIONS| WHERE |
 |-- | -- | --| -- |
@@ -63,6 +67,7 @@ __Memory Management__
 | :heavy_check_mark: | The project follows the Rule of 5. | For all classes, if any one of the copy constructor, copy assignment operator, move constructor, move assignment operator, and destructor are defined, then all of these functions are defined.| Paddle |
 |  | The project uses move semantics to move data, instead of copying it, where possible. | For classes with move constructors, the project returns objects of that class by value, and relies on the move constructor, instead of copying the object. |  |
 | :heavy_check_mark: | The project uses smart pointers instead of raw pointers. | The project uses at least one smart pointer: unique_ptr, shared_ptr, or weak_ptr. The project does not use raw pointers.| Paddle |
+
 __Concurrency__
 |DONE | CRITERIA | MEETS SPECIFICATIONS| WHERE |
 |-- | -- | --| -- |
