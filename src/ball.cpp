@@ -6,12 +6,13 @@
 #include "Game.h"
 #include "Paddle.h"
 
-
+//Constructor
 Ball::Ball(int wGrid, int hGrid) : _wGrid(wGrid), _hGrid(hGrid), pos({static_cast<int>(wGrid/2), static_cast<int>(hGrid/2)}), _direction(Direction::rightUp) 
 {
 
 }
 
+//Check if Ball is still in field
 bool Ball::infieldBall() 
 {
     if(pos.x >= 0 && pos.x < _wGrid && pos.y >= 0 && pos.y < _hGrid) 
@@ -24,6 +25,7 @@ bool Ball::infieldBall()
     }
 }
 
+//Check if Ball Position matches Paddle Position
 bool Ball::paddleCollision(std::vector<std::unique_ptr<Paddle>> &paddles) 
 {
     for(auto p = paddles.begin(); p != paddles.end(); ++p) 
@@ -39,6 +41,7 @@ bool Ball::paddleCollision(std::vector<std::unique_ptr<Paddle>> &paddles)
     return false;
 }
 
+//Updating the Balls position using its direction as well as paddleCollision() and infieldBall() information.
 void Ball::updateBall(std::vector<std::unique_ptr<Paddle>> &paddles) 
 {   
     if(_direction == Direction::leftUp) 
@@ -56,6 +59,8 @@ void Ball::updateBall(std::vector<std::unique_ptr<Paddle>> &paddles)
             if(pos.x == 0) 
             {
                 paddles.at(0)->state = Paddle::GameState::lose;
+                pos.x = _wGrid/2;
+                pos.y = _hGrid/2;
             }
         } 
         else 
@@ -79,6 +84,8 @@ void Ball::updateBall(std::vector<std::unique_ptr<Paddle>> &paddles)
             if(pos.x == _wGrid-1) 
             {
                 paddles.at(0)->state = Paddle::GameState::lose;
+                pos.x = _wGrid/2;
+                pos.y = _hGrid/2;
             }
         } 
         else 
@@ -111,6 +118,8 @@ void Ball::updateBall(std::vector<std::unique_ptr<Paddle>> &paddles)
             if(pos.x == _wGrid-1) 
             {
                 paddles.at(0)->state = Paddle::GameState::lose;
+                pos.x = _wGrid/2;
+                pos.y = _hGrid/2;
             }
         } 
         else 
@@ -145,6 +154,8 @@ void Ball::updateBall(std::vector<std::unique_ptr<Paddle>> &paddles)
             if(pos.x == 0) 
             {
                 paddles.at(0)->state = Paddle::GameState::lose;
+                pos.x = _wGrid/2;
+                pos.y = _hGrid/2;
             }
         } 
         else 

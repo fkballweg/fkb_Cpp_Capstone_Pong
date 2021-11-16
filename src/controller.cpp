@@ -7,6 +7,7 @@
 
 //Copied and adapted from https://github.com/udacity/CppND-Capstone-Snake-Game
 
+//UserInput for Paddles
 void Controller::HandleInput(bool &isRunning, std::vector<std::unique_ptr<Paddle>> &paddles) const 
 {  
 	SDL_Event event;

@@ -11,6 +11,7 @@
 
 // Copied and adapted from https://github.com/udacity/CppND-Capstone-Snake-Game
 
+// Initialize Paddles and Ball
 Game::Game(std::size_t wGrid, std::size_t hGrid) : _ball(wGrid, hGrid) 
 {
 	for(int i = 0; i < 2; i++) 
@@ -53,16 +54,9 @@ void Game::run(Controller const &controller, Renderer &renderer, std::size_t tar
     }
 }
 
+// Update Game Objects Paddles (in seperate thread) as well as ball.
 void Game::update() 
 {
-	for(auto p = paddles.begin(); p != paddles.end(); ++p) 
-	{
-		if((*p)->state == Paddle::GameState::lose) 
-		{
-			return;
-		}
-	}
-	
 	std::future<void> ftr = std::async(std::launch::async, [this]() 
 	{
 			for(auto p = paddles.begin(); p != paddles.end(); ++p) 

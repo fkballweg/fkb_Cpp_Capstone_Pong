@@ -5,6 +5,7 @@
 
 //Copied and adapted from: https://github.com/udacity/CppND-Capstone-Snake-Game  
 
+//Constructor
 Renderer::Renderer(const std::size_t wScreen, const std::size_t hScreen, const std::size_t wGrid, const std::size_t hGrid)
 		: _screenWidth(wScreen), _screenHeight(hScreen), _gridWidth(wGrid), _gridHeight(hGrid) 
 {
@@ -15,7 +16,7 @@ Renderer::Renderer(const std::size_t wScreen, const std::size_t hScreen, const s
 
 	_sdlWindow = SDL_CreateWindow("Pong Game", SDL_WINDOWPOS_CENTERED,
 									SDL_WINDOWPOS_CENTERED, _screenWidth,
-									_screenHeight, SDL_WINDOW_SHOWN);
+									_screenHeight, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
 
 	if (nullptr == _sdlWindow) {
 		std::cerr << "Window could not be created.\n";
@@ -28,13 +29,17 @@ Renderer::Renderer(const std::size_t wScreen, const std::size_t hScreen, const s
 		std::cerr << "Renderer could not be created.\n";
 		std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
 	}
+
+  SDL_RenderSetLogicalSize(_sdlRenderer, 960, 640);
 }
 
+//Destructor
 Renderer::~Renderer() {
     SDL_DestroyWindow(_sdlWindow);
     SDL_Quit();
 }
 
+//Show Window and Draw Game Objects
 void Renderer::Render(std::vector<std::unique_ptr<Paddle>> &paddles, Ball const ball) {
     SDL_Rect block;
     block.w = _screenWidth / _gridWidth;

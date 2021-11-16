@@ -3,7 +3,7 @@
 
 #include "Paddle.h"
 
-
+//Constructor
 Paddle::Paddle(int wGrid, int hGrid, int lPaddle, bool player) : _wGrid(wGrid), _hGrid(hGrid) 
 {
 	SDL_Point ptPaddle;
@@ -24,6 +24,7 @@ Paddle::Paddle(int wGrid, int hGrid, int lPaddle, bool player) : _wGrid(wGrid), 
 	}
 };
 
+//Copy Constructor
 Paddle::Paddle(const Paddle &other) 
 {
 	queue = other.queue;
@@ -31,6 +32,7 @@ Paddle::Paddle(const Paddle &other)
 	_hGrid = other._hGrid;
 }
 
+//Copy Assignment Operator
 Paddle &Paddle::operator=(const Paddle &other) 
 {	
 	if (this == &other)
@@ -45,6 +47,7 @@ Paddle &Paddle::operator=(const Paddle &other)
 	return *this;
 }
 
+//Move Constructor
 Paddle::Paddle(Paddle &&other) : queue(std::move(other.queue)) 
 {	
 	_wGrid = other._wGrid;
@@ -54,6 +57,7 @@ Paddle::Paddle(Paddle &&other) : queue(std::move(other.queue))
 	other._hGrid = 0;
 }
 
+//Move Assignment Operator
 Paddle &Paddle::operator=(Paddle &&other) 
 {
 	queue = std::move(other.queue);
@@ -67,6 +71,7 @@ Paddle &Paddle::operator=(Paddle &&other)
 	return *this;
 }
 
+//Update Paddle Position based on UserInput for Direction
 void Paddle::update() 
 {
 	if(direction == Direction::Down) 

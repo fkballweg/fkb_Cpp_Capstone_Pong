@@ -23,7 +23,8 @@ class Ball
         Ball(int wGrid, int hGrid);
 
         void updateBall(std::vector<std::unique_ptr<Paddle>> &paddle);
-
+        void resetBall();
+        
 		SDL_Point pos;
         int speed{1};
 

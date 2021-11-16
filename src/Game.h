@@ -19,7 +19,7 @@ class Game {
 				std::size_t target_frame_duration);
 
         void update();
-		// Via a vector on the stack, store boards on the heap.
+		
 		std::vector<std::unique_ptr<Paddle>> paddles;		
 		
 	private:
